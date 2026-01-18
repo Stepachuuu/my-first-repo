@@ -10,3 +10,6 @@
 # Контакты
 inst: @stepachuuu
 telegram:@STEP4CHUU
+
+# Updates
+18.01.26 Выполнено и добавлено домашнее задание по Playwright (в отдельной ветке)
