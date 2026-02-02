@@ -1,0 +1,53 @@
+name: Manual Test Run
+
+on:
+  workflow_dispatch: # позволяет запускать workflow вручную
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Клонирование репозитория
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Шаг 2: Установка Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.11.1"
+
+      # Шаг 3: Установка зависимостей
+      - name: Install dependencies
+        run: npm install
+
+      # Шаг 4: Установка браузеров Playwright
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # Шаг 5: Запуск UI тестов
+      - name: Run UI tests
+        run: npm run tests:ui -- --reporter=html --output=playwright-report-ui
+
+      # Шаг 6: Запуск API тестов
+      - name: Run API tests
+        run: npm run tests:api -- --reporter=html --output=playwright-report-api
+
+      # Шаг 7: Загрузка UI отчета
+      - name: Upload UI test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-ui
+          path: playwright-report-ui
+          retention-days: 7
+
+      # Шаг 8: Загрузка API отчета
+      - name: Upload API test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-api
+          path: playwright-report-api
+          retention-days: 7
