@@ -1,0 +1,27 @@
+{
+  "name": "my-first-repo",
+  "version": "1.0.0",
+  "description": "Привет! Меня зовут [Степан]. Я учусь пользоваться Git и GitHub.",
+  "main": "index.js",
+  "scripts": {
+    "tests:ui": "npx playwright test --grep @ui",
+    "tests:api": "npx playwright test --grep @api",
+    "tests:all": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stepachuuu/my-first-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Stepachuuu/my-first-repo/issues"
+  },
+  "homepage": "https://github.com/Stepachuuu/my-first-repo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.9"
+  }
+}

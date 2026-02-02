@@ -4,7 +4,7 @@ import { execPath } from "node:process";
 //Первый тест
 
 test.describe("Первое задание", () => {
-  test("Успешный вход в систему", async ({ page }) => {
+  test("@ui Успешный вход в систему", async ({ page }) => {
     //1. Переход на страницу сайта
     await page.goto("https://www.saucedemo.com/");
     //2. Ввод логина
@@ -24,7 +24,7 @@ test.describe("Первое задание", () => {
 
 // Второй тест (доп.задание)
 test.describe("Дополнительное задание", () => {
-  test("Неуспешный вход", async ({ page }) => {
+  test("@ui Неуспешный вход", async ({ page }) => {
     //1. Переход на страницу сайта
     await page.goto("https://www.saucedemo.com/");
     //2. Ввод логина и пароля
